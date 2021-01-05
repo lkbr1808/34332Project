@@ -1,31 +1,34 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use ieee.std_logic_unsigned.all;
-library STD;
-use STD.textio.all;
-use IEEE.std_logic_textio.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
+ENTITY ShiftRows_TB IS
+END ENTITY;
 
-LIBRARY STD;
-USE STD.textio.all;
+ARCHITECTURE ShiftRows_TB_Arch OF ShiftRows_TB IS
+	COMPONENT ShiftRows
+		PORT (
+			input : IN STD_LOGIC_VECTOR (127 DOWNTO 0);
+			output : OUT STD_LOGIC_VECTOR(127 DOWNTO 0)
+		);
+	END COMPONENT;
+	SIGNAL clk : STD_LOGIC;
+	SIGNAL input_TB, output_TB : STD_LOGIC_VECTOR(127 DOWNTO 0);
 
-entity ShiftRows_TB is
-end entity;
+BEGIN
 
-architecture ShiftRows_TB_arch of ShiftRows_TB is
+	stimulus : PROCESS
+	BEGIN
+		clk <= '1';
+		WAIT FOR 10 ns;
+		clk <= '0';
+		WAIT FOR 10 ns;
+	END PROCESS;
 
-component ShiftRows_TB
-	port (input : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-			output : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
-			
-			end component;
-			
-	signal input_TB, output_TB : STD_LOGIC_VECTOR(127 DOWNTO 0);
+	DUT : ShiftRows PORT MAP(input_TB, output_TB)
 
-	begin
+	PROCESS BEGIN
+		input_TB <= x"193de3bea0f4e22b9ac68d2ae9f84808";
+		WAIT FOR 30 ns;
+	END PROCESS;
 
-DUT: ShiftRows port map (input => input_TB,
-								 output => output_TB);
-								 
-end architecture;
+END ARCHITECTURE

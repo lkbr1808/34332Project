@@ -40,3 +40,4 @@ db
 *.hb_info
 *.sig
 *.xml
+*.bak
