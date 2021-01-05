@@ -8,7 +8,7 @@ entity ShiftRows is
 	port(
 			
 			input : in std_logic_vector(127 downto 0);
-			output : out std_logic_vector(127 downto 0);
+			output : out std_logic_vector(127 downto 0)
 			);
 			
 end entity;
