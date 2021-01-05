@@ -35,7 +35,7 @@ BEGIN
 	DUT : SubBytes PORT MAP(clk, data_in_TB, data_out_TB);
 
 	PROCESS BEGIN
-	data_in_TB <= x"193de3bea0f4e22b9ac68d2ae9f84808"; wait for 30 ns;
+	data_in_TB <= x"193de3bea0f4e22b9ac68d2ae9f84808"; wait for 10 ns;
 	END PROCESS;
 
 END ARCHITECTURE;

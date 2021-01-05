@@ -1,1 +1,64 @@
+{{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytes.vhd}} {0 {vcom -work work -2002 -explicit {C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 11:53:37 on Jan 05,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SubBytes
+-- Compiling architecture SubBytes_arc of SubBytes
+** Error (suppressible): C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes.vhd(21): (vcom-1141) Identifier "SubBytesROM" does not identify a component declaration.
 
+** Error: C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes.vhd(34): VHDL Compiler exiting
+End time: 11:53:37 on Jan 05,2021, Elapsed time: 0:00:00
+Errors: 2, Warnings: 0
+
+} {16.0 17.0} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytes_TB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes_TB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SubBytes_TB
+-- Compiling architecture SubBytes_TB_arc of SubBytes_TB
+
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytes_TB.vhd}} {0 {vcom -work work -2002 -explicit {C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes_TB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 11:53:37 on Jan 05,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes_TB.vhd 
+-- Loading package STANDARD
+** Error (suppressible): C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytes_TB.vhd(2): (vcom-1491) Empty source files.
+
+End time: 11:53:37 on Jan 05,2021, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd}} {1 {vcom -work work -2002 -explicit {C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytesROM.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 11:53:36 on Jan 05,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytesROM.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SubBytesROM
+-- Compiling architecture SubBytesROM_ARC of SubBytesROM
+End time: 11:53:36 on Jan 05,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Gustav Surface\Google Drive\DTU\34332 Projects in Digital Hardwaredesign for Communications Jan21\34332Project\SubBytesROM.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SubBytesROM
+-- Compiling architecture SubBytesROM_ARC of SubBytesROM
+
+} {} {}}

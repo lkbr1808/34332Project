@@ -7,8 +7,8 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY SubBytes IS
 	PORT (
 		clk      : IN STD_LOGIC;
-		data_in  : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-		data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
+		data_in  : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		data_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
 
 END ENTITY;
 
@@ -17,8 +17,8 @@ ARCHITECTURE SubBytes_arc OF SubBytes IS
 	COMPONENT SubBytesROM 
     	PORT (
         clock : IN STD_LOGIC;
-        address : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-        data_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+        address : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+        data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 	END COMPONENT;
 
 	SIGNAL data_temp, index : STD_LOGIC_VECTOR(127 DOWNTO 0);
