@@ -24,11 +24,11 @@ BEGIN
 		WAIT FOR 10 ns;
 	END PROCESS;
 
-	DUT : ShiftRows PORT MAP(input_TB, output_TB)
+	DUT : ShiftRows PORT MAP(input_TB, output_TB);
 
 	PROCESS BEGIN
 		input_TB <= x"d42711aee0bf98f1b8b45de51e415230";
 		WAIT FOR 30 ns;
 	END PROCESS;
 
-END ARCHITECTURE
+END ARCHITECTURE;
