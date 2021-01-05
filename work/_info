@@ -8,3 +8,44 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/Gustav Surface/Google Drive/DTU/34331 Digital Hardwaredesign for Communications E20/mini-projekt
+Esub_bytes_rom
+Z0 w1609841635
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project
+Z5 8C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd
+Z6 FC:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd
+l0
+L5
+VToIomCOW[mL>7:3YPbbkV2
+!s100 aO40YT2cF_=d^>SX6=aIm2
+Z7 OV;C;10.4b;61
+32
+Z8 !s110 1609841642
+!i10b 1
+Z9 !s108 1609841642.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd|
+Z11 !s107 C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1
+Asub_bytes_rom_arc
+R1
+R2
+R3
+DEx4 work 13 sub_bytes_rom 0 22 ToIomCOW[mL>7:3YPbbkV2
+l274
+L12
+Vh;JaTl15@4O6B[@ezYYS?3
+!s100 z<e>9=<31a5W@;[hK4Fa[2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
