@@ -1,0 +1,46 @@
+{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SubBytes
+-- Compiling architecture SubBytes_arc of SubBytes
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyExpansion
+-- Compiling architecture KeyExpansion_arc of KeyExpansion
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SubBytesROM
+-- Compiling architecture SubBytesROM_ARC of SubBytesROM
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyGenerate
+-- Compiling architecture KeyGenerate_arc of KeyGenerate
+
+} {} {}}
