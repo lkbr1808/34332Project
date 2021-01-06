@@ -1,0 +1,21 @@
+LIBRARY ieee;
+USE ieee.std_logic_textio.ALL;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY KEY_EXPANSION IS
+	PORT (
+		clk : IN STD_LOGIC;
+		key : STD_LOGIC_VECTOR(127 DOWNTO 0);
+		key_out : OUT STD_LOGIC_VECTOR(1407 DOWNTO 0));
+
+END ENTITY;
+
+ARCHITECTURE KEY_EXPANSION_arc OF KEY_EXPANSION IS
+
+
+BEGIN
+	
+
+END ARCHITECTURE;

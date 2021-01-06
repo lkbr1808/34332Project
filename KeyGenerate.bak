@@ -1,0 +1,80 @@
+LIBRARY ieee;
+USE ieee.std_logic_textio.ALL;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+USE ieee.std_logic_unsigned.ALL;
+ENTITY IP_CHECKSUM IS
+	PORT (
+		clk, reset, start_of_file : IN STD_LOGIC;
+		data_in : STD_LOGIC_VECTOR(7 DOWNTO 0);
+		cksum_cal, cksum_ok : OUT STD_LOGIC;
+		cksum_ok_cnt, cksum_ko_cnt : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+
+END ENTITY;
+
+ARCHITECTURE IP_CHECKSUM_arc OF IP_CHECKSUM IS
+
+	SIGNAL data_TEMP : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL second : STD_LOGIC;
+	SIGNAL cksum_ok_cnt_sig : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"0000";
+	SIGNAL cksum_ko_cnt_sig : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"0000";
+
+
+BEGIN
+	reader : PROCESS (clk)
+		VARIABLE sum_TEMP : STD_LOGIC_VECTOR(16 DOWNTO 0) := '0' & x"0000";
+		VARIABLE sum : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"0000";
+		VARIABLE count : STD_LOGIC_VECTOR(7 DOWNTO 0) := x"00";
+		VARIABLE first_time_through : STD_LOGIC := '1';
+	BEGIN
+		IF (rising_edge(clk)) THEN
+
+			IF (start_of_file = '1') THEN
+
+				IF (first_time_through = '0') THEN
+					IF (second = '0') THEN
+						sum_TEMP := ('0' & sum) + ('0' & data_TEMP);
+						sum := sum_TEMP(15 DOWNTO 0) + sum_TEMP(16);
+					END IF;
+
+					IF (sum = x"ffff") THEN
+						cksum_ok <= '0';
+						cksum_ok_cnt_sig <= cksum_ok_cnt_sig + '1';
+					ELSE
+						cksum_ok <= '1';
+						cksum_ko_cnt_sig <= cksum_ko_cnt_sig + '1';
+					END IF;
+				END IF;
+
+				data_TEMP(15 DOWNTO 8) <= data_in;
+				second <= '1';
+				sum := x"0000";
+				cksum_cal <= '1';
+				first_time_through := '0';
+			ELSE
+				cksum_cal <= '0';
+
+
+				IF (second = '0') THEN
+					sum_TEMP := ('0' & sum) + ('0' & data_TEMP);
+					sum := sum_TEMP(15 DOWNTO 0) + sum_TEMP(16);
+					count := count + '1';
+					data_TEMP(15 DOWNTO 8) <= data_in;
+					second <= '1';
+				ELSE
+
+					data_TEMP(7 DOWNTO 0) <= data_in;
+					count := count + '1';
+					second <= '0';
+
+				END IF;
+
+			END IF;
+
+		END IF;
+
+	END PROCESS;
+	cksum_ko_cnt <= cksum_ko_cnt_sig;
+	cksum_ok_cnt <= cksum_ok_cnt_sig;
+
+END ARCHITECTURE;
