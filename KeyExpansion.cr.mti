@@ -1,5 +1,7 @@
-{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd}
+{{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd}
 Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 10:14:42 on Jan 06,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -9,6 +11,36 @@ Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity SubBytes
 -- Compiling architecture SubBytes_arc of SubBytes
+End time: 10:14:42 on Jan 06,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesWord.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SubBytesWord
+-- Compiling architecture SubBytesWord_arc of SubBytesWord
+
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 10:14:41 on Jan 06,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyExpansion
+-- Compiling architecture KeyExpansion_arc of KeyExpansion
+End time: 10:14:41 on Jan 06,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
 
 } {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion.vhd}
 Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
@@ -22,6 +54,47 @@ Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
 -- Compiling entity KeyExpansion
 -- Compiling architecture KeyExpansion_arc of KeyExpansion
 
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 10:14:41 on Jan 06,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity SubBytesROM
+-- Compiling architecture SubBytesROM_ARC of SubBytesROM
+End time: 10:14:42 on Jan 06,2021, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion_TB.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion_TB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 10:14:41 on Jan 06,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion_TB.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyExpansion_TB
+-- Compiling architecture KeyExpansion_TB_arc of KeyExpansion_TB
+End time: 10:14:41 on Jan 06,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion_TB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyExpansion_TB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyExpansion_TB
+-- Compiling architecture KeyExpansion_TB_arc of KeyExpansion_TB
+
 } {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/SubBytesROM.vhd}
 Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
 -- Loading package STANDARD
@@ -30,6 +103,22 @@ Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
 -- Loading package NUMERIC_STD
 -- Compiling entity SubBytesROM
 -- Compiling architecture SubBytesROM_ARC of SubBytesROM
+
+} {} {}} {{C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd}} {1 {vcom -work work -2002 -explicit {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+Start time: 10:14:41 on Jan 06,2021
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity KeyGenerate
+-- Compiling architecture KeyGenerate_arc of KeyGenerate
+End time: 10:14:41 on Jan 06,2021, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
 
 } {} {}} {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Gustav Surface/Google Drive/DTU/34332 Projects in Digital Hardwaredesign for Communications Jan21/34332Project/KeyGenerate.vhd}
 Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
