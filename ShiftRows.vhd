@@ -21,20 +21,46 @@ ARCHITECTURE ShiftRows_arch OF ShiftRows IS
 
 BEGIN
 
-	output(8 * 16 - 1 DOWNTO 8 * 15) <= input(8 * 12 - 1 DOWNTO 8 * 11);
-	output(8 * 15 - 1 DOWNTO 8 * 14) <= input(8 * 7 - 1 DOWNTO 8 * 6);
-	output(8 * 14 - 1 DOWNTO 8 * 13) <= input(8 * 2 - 1 DOWNTO 8 * 1);
-	output(8 * 13 - 1 DOWNTO 8 * 12) <= input(8 * 13 - 1 DOWNTO 8 * 12);
-	output(8 * 12 - 1 DOWNTO 8 * 11) <= input(8 * 8 - 1 DOWNTO 8 * 7);
-	output(8 * 11 - 1 DOWNTO 8 * 10) <= input(8 * 3 - 1 DOWNTO 8 * 2);
-	output(8 * 10 - 1 DOWNTO 8 * 9) <= input(8 * 14 - 1 DOWNTO 8 * 13);
-	output(8 * 9 - 1 DOWNTO 8 * 8) <= input(8 * 9 - 1 DOWNTO 8 * 8);
-	output(8 * 8 - 1 DOWNTO 8 * 7) <= input(8 * 4 - 1 DOWNTO 8 * 3);
-	output(8 * 7 - 1 DOWNTO 8 * 6) <= input(8 * 15 - 1 DOWNTO 8 * 14);
-	output(8 * 6 - 1 DOWNTO 8 * 5) <= input(8 * 10 - 1 DOWNTO 8 * 9);
-	output(8 * 5 - 1 DOWNTO 8 * 4) <= input(8 * 5 - 1 DOWNTO 8 * 4);
-	output(8 * 4 - 1 DOWNTO 8 * 3) <= input(8 * 16 - 1 DOWNTO 8 * 15);
-	output(8 * 3 - 1 DOWNTO 8 * 2) <= input(8 * 11 - 1 DOWNTO 8 * 10);
-	output(8 * 2 - 1 DOWNTO 8 * 1) <= input(8 * 6 - 1 DOWNTO 8 * 5);
-	output(8 * 1 - 1 DOWNTO 8 * 0) <= input(8 * 1 - 1 DOWNTO 8 * 0);
+	--Shifting 1st row
+	output(127 downto 120) <= input(127 downto 120);
+	output(95 downto 88) <= input(95 downto 88);
+	output(63 downto 56) <= input(63 downto 56);
+	output(31 downto 24) <= input(31 downto 24);
+	
+	--Shifting 2nd row
+	output(119 downto 112) <= input(23 downto 16);
+	output(87 downto 80) <= input(119 downto 112);
+	output(55 downto 48) <= input(87 downto 80);
+	output(23 downto 16) <= input(55 downto 48);
+	--Shifting 3rd row
+	output(111 downto 104) <= input(47 downto 40);
+	output(79 downto 72) <= input(15 downto 8);
+	output(47 downto 40) <= input(111 downto 104);
+	output(15 downto 8) <= input(79 downto 72);
+	--Shifting 4th row
+	output(103 downto 96) <= input(71 downto 64);
+	output(71 downto 64) <= input(39 downto 32);
+	output(39 downto 32) <= input(7 downto 0);
+	output(7 downto 0) <= input(103 downto 96);
+
+	-- Shifting 1st row
+	--output(127 DOWNTO 96) <= input(127 DOWNTO 96);
+
+	-- Shifting 2nd row
+	--output(95 DOWNTO 88) <= input(87 DOWNTO 80);
+	--output(87 DOWNTO 80) <= input(79 DOWNTO 72);
+	--output(79 DOWNTO 72) <= input(71 DOWNTO 64);
+	--output(71 DOWNTO 64) <= input(95 DOWNTO 88);
+
+	-- Shifting 3rd row
+	--output(63 DOWNTO 56) <= input(47 DOWNTO 40);
+	--output(55 DOWNTO 48) <= input(39 DOWNTO 32);
+	--output(47 DOWNTO 40) <= input(63 DOWNTO 56);
+	--output(39 DOWNTO 32) <= input(55 DOWNTO 48);
+
+	-- Shifting 4th row
+	--output(31 DOWNTO 24) <= input(7 DOWNTO 0);
+	--output(23 DOWNTO 16) <= input(31 DOWNTO 24);
+	--output(15 DOWNTO 8) <= input(23 DOWNTO 16);
+	--output(7 DOWNTO 0) <= input(15 DOWNTO 8);
 END ARCHITECTURE;
