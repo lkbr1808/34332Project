@@ -1,5 +1,8 @@
 db
 incremental_db
+*.mti
+*.mpf
+*.wlf
 *.bpm
 *.cdb
 *.hdb
