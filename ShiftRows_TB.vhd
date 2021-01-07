@@ -1,0 +1,34 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY ShiftRows_TB IS
+END ENTITY;
+
+ARCHITECTURE ShiftRows_TB_Arch OF ShiftRows_TB IS
+	COMPONENT ShiftRows
+		PORT (
+			input : IN STD_LOGIC_VECTOR (127 DOWNTO 0);
+			output : OUT STD_LOGIC_VECTOR(127 DOWNTO 0)
+		);
+	END COMPONENT;
+	SIGNAL clk : STD_LOGIC;
+	SIGNAL input_TB, output_TB : STD_LOGIC_VECTOR(127 DOWNTO 0);
+
+BEGIN
+
+	stimulus : PROCESS
+	BEGIN
+		clk <= '1';
+		WAIT FOR 10 ns;
+		clk <= '0';
+		WAIT FOR 10 ns;
+	END PROCESS;
+
+	DUT : ShiftRows PORT MAP(input_TB, output_TB);
+
+	PROCESS BEGIN
+		input_TB <= x"d42711aee0bf98f1b8b45de51e415230";
+		WAIT FOR 30 ns;
+	END PROCESS;
+
+END ARCHITECTURE;
