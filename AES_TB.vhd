@@ -37,8 +37,8 @@ BEGIN
 	DUT : AES PORT MAP(clk, key_TB, '1', in_data_TB, out_val_TB, out_data_TB);
 
 	PROCESS BEGIN
-		key_TB     <= x"2b7e151628aed2a6abf7158809cf4f3c";
-		in_data_TB <= x"3243f6a8885a308d313198a2e0370734";
+		key_TB     <= x"00000000000000000000000000000000";
+		in_data_TB <= x"9798c4640bad75c7c3227db910174e72";
 	wait for 30 ns;
 	END PROCESS;
 
