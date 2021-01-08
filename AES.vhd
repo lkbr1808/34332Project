@@ -57,12 +57,12 @@ ARCHITECTURE AES_arc OF AES IS
 
 	SIGNAL state1, state2, state3, state4, state5 : STD_LOGIC_VECTOR(127 downto 0);
 	SIGNAL state6, state7, state8, state9, state10 : STD_LOGIC_VECTOR(127 downto 0);
-	SIGNAL state11, state12, state13, state14 : STD_LOGIC_VECTOR(127 downto 0);
+	SIGNAL state11, state12, state13 : STD_LOGIC_VECTOR(127 downto 0);
 	SIGNAL roundkeys : STD_LOGIC_VECTOR(1407 downto 0);
 BEGIN
 
-	U1 : AddKey PORT MAP(clk, in_data, key, state1); -- round 0
-	U2 : KeyExpansion PORT MAP(clk, key, roundkeys);
+	U1 : KeyExpansion PORT MAP(clk, key, roundkeys);
+	U2 : AddKey PORT MAP(clk, in_data, roundkeys(1407 downto 1280), state1); -- round 0
 	U3 : AESRound PORT MAP(clk, roundkeys(1279 downto 1152), state1, state2); --round 1
 	U4 : AESRound PORT MAP(clk, roundkeys(1151 downto 1024), state2, state3); --round 2
 	U5 : AESRound PORT MAP(clk, roundkeys(1023 downto 896), state3, state4); --round 3
@@ -79,8 +79,8 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		IF (RISING_EDGE(clk)) THEN
-		out_data <= state14;
-
+		out_data <= state13;
+		out_val <= '1';
 		END IF;
 
 	END PROCESS;
