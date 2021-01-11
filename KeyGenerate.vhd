@@ -6,9 +6,10 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY KeyGenerate IS
 	PORT (
-		clk : IN STD_LOGIC;
+		clk, in_val : IN STD_LOGIC;
 		key : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-		rcon : in STD_LOGIC_VECTOR(31 downto 0);
+		rcon : IN STD_LOGIC_VECTOR(31 downto 0);
+		out_val : OUT STD_LOGIC;
 		key_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 
 END ENTITY;
@@ -17,18 +18,20 @@ ARCHITECTURE KeyGenerate_arc OF KeyGenerate IS
 
 COMPONENT SubBytesWord IS
 	PORT (
-		clk      : IN STD_LOGIC;
+		clk, in_val      : IN STD_LOGIC;
 		data_in  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		out_val : OUT STD_LOGIC;
 		data_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 
 END COMPONENT;
 
 SIGNAL first_word, temp_word : STD_LOGIC_VECTOR(31 downto 0);
 SIGNAL word1, word2, word3, word4 : STD_LOGIC_VECTOR(31 downto 0);
+SIGNAL val1 : STD_LOGIC := '0';
 
 BEGIN
 
-	U1 : SubBytesWord PORT MAP(clk, first_word, temp_word);
+	U1 : SubBytesWord PORT MAP(clk, in_val, first_word, val1, temp_word);
 
 	first_word(31 downto 8) <= key(23 downto 0);
 	first_word(7 downto 0) <= key(31 downto 24);
@@ -41,10 +44,13 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		IF (RISING_EDGE(clk)) THEN
-			key_out(127 downto 96) <= word1;
-			key_out(95 downto 64) <= word2;
-			key_out(63 downto 32) <= word3;
-			key_out(31 downto 0) <= word4;
+			IF (val1 = '1') THEN
+				key_out(127 downto 96) <= word1;
+				key_out(95 downto 64) <= word2;
+				key_out(63 downto 32) <= word3;
+				key_out(31 downto 0) <= word4;
+				out_val <= '1';
+			END IF;
 		END IF;
 
 	END PROCESS;

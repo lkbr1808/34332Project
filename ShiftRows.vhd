@@ -6,8 +6,9 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY ShiftRows IS
 
 	PORT (
-		clk : IN STD_LOGIC;
+		clk, in_val : IN STD_LOGIC;
 		input : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+		out_val : OUT STD_LOGIC;
 		out_data : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 END ENTITY;
 
@@ -16,7 +17,8 @@ END ENTITY;
 --=======================================================
 
 ARCHITECTURE ShiftRows_arch OF ShiftRows IS
-	signal output : STD_LOGIC_VECTOR(127 downto 0);
+	SIGNAL output : STD_LOGIC_VECTOR(127 downto 0);
+	SIGNAL val1 : STD_LOGIC := '0';
 BEGIN
 
 	--Shifting 1st row
@@ -47,7 +49,13 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		IF rising_edge(clk) THEN
-			out_data <= output;
+			IF (in_val = '1') THEN
+				val1 <= '1';
+			END IF;
+			IF (val1 = '1') THEN
+				out_data <= output;
+				out_val <= '1';
+			END IF;
 		END IF;
 
 	END PROCESS;

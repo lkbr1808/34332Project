@@ -22,7 +22,7 @@ ARCHITECTURE AES_TB_arc OF AES_TB IS
 
 	END COMPONENT;
 	
-	SIGNAL clk, out_val_TB : STD_LOGIC;
+	SIGNAL clk, out_val_TB, in_val_TB : STD_LOGIC;
 	SIGNAL in_data_TB, out_data_TB, key_TB : STD_LOGIC_VECTOR(127 downto 0);
 	
 BEGIN
@@ -34,12 +34,15 @@ BEGIN
 		WAIT FOR 5 ns;
 	END PROCESS;
 
-	DUT : AES PORT MAP(clk, key_TB, '1', in_data_TB, out_val_TB, out_data_TB);
+	DUT : AES PORT MAP(clk, key_TB, in_val_TB, in_data_TB, out_val_TB, out_data_TB);
 
 	PROCESS BEGIN
-		key_TB     <= x"00000000000000000000000000000000";
-		in_data_TB <= x"9798c4640bad75c7c3227db910174e72";
-	wait for 30 ns;
+		in_val_TB  <= '1';
+		key_TB     <= x"10a58869d74be5a374cf867cfb473859";
+		in_data_TB <= x"00000000000000000000000000000000";
+		wait for 30 ns;
+		in_val_TB <= '0';
+		wait for 30 ns;
 	END PROCESS;
 
 END ARCHITECTURE;
