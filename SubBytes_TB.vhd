@@ -10,13 +10,11 @@ ENTITY SubBytes_TB IS
 END ENTITY;
 
 ARCHITECTURE SubBytes_TB_arc OF SubBytes_TB IS
-
-
 	COMPONENT SubBytes IS
-	PORT (
-		clk      : IN STD_LOGIC;
-		data_in  : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-		data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
+		PORT (
+			clk : IN STD_LOGIC;
+			data_in : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+			data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 
 	END COMPONENT;
 
@@ -35,7 +33,8 @@ BEGIN
 	DUT : SubBytes PORT MAP(clk, data_in_TB, data_out_TB);
 
 	PROCESS BEGIN
-	data_in_TB <= x"193de3bea0f4e22b9ac68d2ae9f84808"; wait for 30 ns;
+		data_in_TB <= x"193de3bea0f4e22b9ac68d2ae9f84808";
+		WAIT FOR 30 ns;
 	END PROCESS;
 
 END ARCHITECTURE;
