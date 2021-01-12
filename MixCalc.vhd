@@ -14,10 +14,10 @@ END ENTITY MixCalc;
 ARCHITECTURE rtl OF MixCalc IS
 
 	SIGNAL newState : STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL sig0, sig1, sig2, sig3 : STD_LOGIC_VECTOR(7 downto 0);
-	SIGNAL tmp, tmp01, tmp12, tmp23, tmp30 : STD_LOGIC_VECTOR(7 downto 0);
+	SIGNAL sig0, sig1, sig2, sig3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL tmp, tmp01, tmp12, tmp23, tmp30 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL double01, double12, double23, double30 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL val1: STD_LOGIC := '0';
+	SIGNAL val1 : STD_LOGIC := '0';
 
 BEGIN
 
@@ -26,7 +26,7 @@ BEGIN
 	sig2 <= state(15 DOWNTO 8);
 	sig3 <= state(7 DOWNTO 0);
 
-	tmp  <= sig0 XOR sig1 XOR sig2 XOR sig3;
+	tmp <= sig0 XOR sig1 XOR sig2 XOR sig3;
 
 	tmp01 <= sig0 XOR sig1;
 	tmp12 <= sig1 XOR sig2;
@@ -34,18 +34,18 @@ BEGIN
 	tmp30 <= sig3 XOR sig0;
 
 	double01 <= (tmp01(6 DOWNTO 0) & '0') XOR x"1B" WHEN tmp01(7) = '1' ELSE
-		    (tmp01(6 DOWNTO 0) & '0');
+		(tmp01(6 DOWNTO 0) & '0');
 	double12 <= (tmp12(6 DOWNTO 0) & '0') XOR x"1B" WHEN tmp12(7) = '1' ELSE
-		    (tmp12(6 DOWNTO 0) & '0');
+		(tmp12(6 DOWNTO 0) & '0');
 	double23 <= (tmp23(6 DOWNTO 0) & '0') XOR x"1B" WHEN tmp23(7) = '1' ELSE
-		    (tmp23(6 DOWNTO 0) & '0');
+		(tmp23(6 DOWNTO 0) & '0');
 	double30 <= (tmp30(6 DOWNTO 0) & '0') XOR x"1B" WHEN tmp30(7) = '1' ELSE
-		    (tmp30(6 DOWNTO 0) & '0');
+		(tmp30(6 DOWNTO 0) & '0');
 
 	newstate(31 DOWNTO 24) <= sig0 XOR tmp XOR double01;
 	newstate(23 DOWNTO 16) <= sig1 XOR tmp XOR double12;
-	newstate(15 DOWNTO 8)  <= sig2 XOR tmp XOR double23;
-	newstate(7 DOWNTO 0)   <= sig3 XOR tmp XOR double30;
+	newstate(15 DOWNTO 8) <= sig2 XOR tmp XOR double23;
+	newstate(7 DOWNTO 0) <= sig3 XOR tmp XOR double30;
 
 	PROCESS (clk)
 	BEGIN

@@ -13,7 +13,7 @@ END ENTITY MixColumns;
 
 ARCHITECTURE rtl OF MixColumns IS
 	SIGNAL newState : STD_LOGIC_VECTOR(127 DOWNTO 0);
-	SIGNAL vals : STD_LOGIC_VECTOR(3 downto 0) := x"0";
+	SIGNAL vals : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"0";
 
 	COMPONENT MixCalc IS
 		PORT (
@@ -29,7 +29,7 @@ BEGIN
 	U2 : MixCalc PORT MAP(clk, in_val, state(95 DOWNTO 64), vals(1), newState(95 DOWNTO 64));
 	U3 : MixCalc PORT MAP(clk, in_val, state(63 DOWNTO 32), vals(2), newState(63 DOWNTO 32));
 	U4 : MixCalc PORT MAP(clk, in_val, state(31 DOWNTO 0), vals(3), newState(31 DOWNTO 0));
-	
+
 	PROCESS (clk)
 	BEGIN
 		IF rising_edge(clk) THEN
