@@ -29,7 +29,7 @@ ARCHITECTURE InverseSubBytes_arc OF InverseSubBytes IS
 
 	BEGIN
 	
-	--IF (in_val = '1') THEN
+	
 		Hubba1  : InverseSubBytesROM PORT MAP(clk, in_val, data_in(127 downto 120), vals(0), data_temp(127 downto 120));
 		Hubba2  : InverseSubBytesROM PORT MAP(clk, in_val, data_in(119 downto 112), vals(1), data_temp(119 downto 112));
 		Hubba3  : InverseSubBytesROM PORT MAP(clk, in_val, data_in(111 downto 104), vals(2), data_temp(111 downto 104));
@@ -46,7 +46,7 @@ ARCHITECTURE InverseSubBytes_arc OF InverseSubBytes IS
 		Hubba14 : InverseSubBytesROM PORT MAP(clk, in_val, data_in(23  downto 16),  vals(13), data_temp(23  downto 16));
 		Hubba15 : InverseSubBytesROM PORT MAP(clk, in_val, data_in(15  downto 8),   vals(14), data_temp(15  downto 8));
 		Hubba16 : InverseSubBytesROM PORT MAP(clk, in_val, data_in(7   downto 0),   vals(15), data_temp(7   downto 0)); 
-	--END IF;
+	
 
 	incrementer : PROCESS (clk)
 	BEGIN
