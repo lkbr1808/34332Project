@@ -23,23 +23,24 @@ ARCHITECTURE SubBytesWord_arc OF SubBytesWord IS
 			data_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
 	END COMPONENT;
 
-	SIGNAL data_temp, index : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL data_temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL vals : STD_LOGIC_VECTOR(3 DOWNTO 0) := x"0";
 
 BEGIN
 
-	U1 : SubBytesROM PORT MAP(clk, in_val, index(31 DOWNTO 24), vals(0), data_temp(31 DOWNTO 24));
-	U2 : SubBytesROM PORT MAP(clk, in_val, index(23 DOWNTO 16), vals(1), data_temp(23 DOWNTO 16));
-	U3 : SubBytesROM PORT MAP(clk, in_val, index(15 DOWNTO 8), vals(2), data_temp(15 DOWNTO 8));
-	U4 : SubBytesROM PORT MAP(clk, in_val, index(7 DOWNTO 0), vals(3), data_temp(7 DOWNTO 0));
+	U1 : SubBytesROM PORT MAP(clk, in_val, data_in(31 DOWNTO 24), vals(0), data_temp(31 DOWNTO 24));
+	U2 : SubBytesROM PORT MAP(clk, in_val, data_in(23 DOWNTO 16), vals(1), data_temp(23 DOWNTO 16));
+	U3 : SubBytesROM PORT MAP(clk, in_val, data_in(15 DOWNTO 8), vals(2), data_temp(15 DOWNTO 8));
+	U4 : SubBytesROM PORT MAP(clk, in_val, data_in(7 DOWNTO 0), vals(3), data_temp(7 DOWNTO 0));
 
 	incrementer : PROCESS (clk)
 	BEGIN
 		IF (RISING_EDGE(clk)) THEN
 			IF (vals = x"f") THEN
-				index <= data_in;
 				data_out <= data_temp;
 				out_val <= '1';
+			ELSE 
+				out_val <= '0';
 			END IF;
 		END IF;
 	END PROCESS;

@@ -74,6 +74,9 @@ BEGIN
 			IF (val1 = '1') THEN
 				state_out <= newState;
 				out_val <= '1';
+				val1 <= '0';
+			ELSE 
+				out_val <= '0';
 			END IF;
 		END IF;
 

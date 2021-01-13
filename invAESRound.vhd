@@ -65,6 +65,8 @@ BEGIN
 			IF (val4 = '1') THEN
 				out_val <= '1';
 				out_data <= state4;
+			ELSE 
+				out_val <= '0';
 			END IF;
 		END IF;
 	END PROCESS;

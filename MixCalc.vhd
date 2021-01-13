@@ -50,12 +50,14 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		IF rising_edge(clk) THEN
-			--IF (in_val = '1') THEN
-			--	val1 <= '1';
-			--END IF;
+			IF (in_val = '1') THEN
+				val1 <= '1';
+			END IF;
 			IF (in_val = '1') THEN
 				state_out <= newState;
 				out_val <= '1';
+			ELSE 
+				out_val <= '0';
 			END IF;
 		END IF;
 
