@@ -88,7 +88,7 @@ BEGIN
 			IF (val14 = '1') THEN
 				out_data <= state13;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

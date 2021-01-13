@@ -26,6 +26,7 @@ BEGIN
 	sig1 <= state(23 DOWNTO 16);
 	sig2 <= state(15 DOWNTO 8);
 	sig3 <= state(7 DOWNTO 0);
+
 	tmp <= sig0 XOR sig1 XOR sig2 XOR sig3;
 	tmp1 <= tmp(6 DOWNTO 0) & '0' XOR x"1B" WHEN tmp(7) = '1' ELSE
 		tmp(6 DOWNTO 0) & '0';
@@ -75,7 +76,7 @@ BEGIN
 				state_out <= newState;
 				out_val <= '1';
 				val1 <= '0';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

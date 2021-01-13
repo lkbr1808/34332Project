@@ -280,10 +280,10 @@ BEGIN
             IF (in_val = '1') THEN
                 data_out <= ROM(to_integer(unsigned(address)));
                 out_val <= '1';
-				ELSE 
-					out_val <= '0';
+            ELSE
+                out_val <= '0';
             END IF;
-				
+
         END IF;
     END PROCESS;
 END ARCHITECTURE;

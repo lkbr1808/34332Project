@@ -59,7 +59,7 @@ BEGIN
 				key_out(255 DOWNTO 128) <= key9;
 				key_out(127 DOWNTO 0) <= key10;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

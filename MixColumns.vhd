@@ -36,7 +36,7 @@ BEGIN
 			IF (vals = x"f") THEN
 				state_out <= newState;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

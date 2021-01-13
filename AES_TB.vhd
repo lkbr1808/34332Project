@@ -34,6 +34,7 @@ ARCHITECTURE AES_TB_arc OF AES_TB IS
 	END COMPONENT;
 
 	SIGNAL clk, out_val_TB, in_val_TB, fin_val_TB : STD_LOGIC;
+	SIGNAL first : STD_LOGIC := '1';
 	SIGNAL in_data_TB, out_data_TB, key_TB, fin_data_TB : STD_LOGIC_VECTOR(127 DOWNTO 0);
 	
 
@@ -51,12 +52,16 @@ BEGIN
 
 	
 	PROCESS BEGIN
-		in_val_TB <= '1';
-		key_TB <= x"00000000000000000000000000000000";
-		in_data_TB <= x"f34481ec3cc627bacd5dc3fb08f273e6";
-		WAIT FOR 30 ns;
-		in_val_TB <= '0';
-		WAIT FOR 30 ns;
+		IF (first = '1') THEN
+			in_val_TB <= '1';
+			key_TB <= x"00000000000000000000000000000000";
+			in_data_TB <= x"f34481ec3cc627bacd5dc3fb08f273e6";
+			first <= '0';
+			wait for 20 ns;
+		ELSE
+			in_val_TB <= '0';
+			wait for 20 ns;
+		END IF;
 	END PROCESS;
 
 END ARCHITECTURE;
