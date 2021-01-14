@@ -67,9 +67,11 @@ USE ieee.std_logic_textio.ALL;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 USE ieee.std_logic_unsigned.ALL;
+
 ENTITY DE10_LITE_Empty_Top IS
 	PORT (
 		ADC_CLK_10 : IN STD_LOGIC;
+		SW : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
 		KEY : IN STD_LOGIC_VECTOR(1 DOWNTO 0);-- C
 		HEX0, HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
 END ENTITY DE10_LITE_Empty_Top;
@@ -126,36 +128,49 @@ ARCHITECTURE rtl OF DE10_LITE_Empty_Top IS
 	SIGNAL val2 : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
 	SIGNAL plainText, keyCipher, cipherText, finText : STD_LOGIC_VECTOR(127 DOWNTO 0);
 	SIGNAL address, truths, fails : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
+
 BEGIN
-	U0 : dataROM PORT MAP(ADC_CLK_10, KEY(0), address, val2(0), plainText);
-	U1 : keyROM PORT MAP(ADC_CLK_10, KEY(0), address, val2(1), keyCipher);
-	U2 : cipherROM PORT MAP(ADC_CLK_10, KEY(0), address, val2(2), cipherText);
+
+	U0 : dataROM PORT MAP(ADC_CLK_10, val1, address, val2(0), plainText);
+	U1 : keyROM PORT MAP(ADC_CLK_10, val1, address, val2(1), keyCipher);
+	U2 : cipherROM PORT MAP(ADC_CLK_10, val1, address, val2(2), cipherText);
 
 	U3 : AES PORT MAP(ADC_CLK_10, keyCipher, val3, plainText, val4, finText);
 	--U3 : invAES port map (ADC_CLK_10, keyCipher, val4, cipherText, val5, finText);
+
 	PROCESS (ADC_CLK_10)
 	BEGIN
 		IF (RISING_EDGE(ADC_CLK_10)) THEN
+			IF (address < x"4") THEN
 
-			IF (KEY(0) = '1') THEN
-				address <= address + '1';
-			END IF;
-
-			IF (val2 = "111") THEN
-				val3 <= '1';
-			END IF;
-			IF (val4 = '1') THEN
-
-				IF (cipherText = finText) THEN
-					truths <= truths + '1';
+				IF (KEY(0) = '0') THEN
+					address <= "00";
+					val1 <= '0';
 				ELSE
 
-					fails <= fails + '1';
+					IF (SW(0) = '1') THEN
+						val1 <= '1';
+						address <= address + '1';
+					END IF;
+
+					IF (val2 = "111") THEN
+						val3 <= '1';
+					ELSE
+						val3 <= '0';
+					END IF;
+
+					IF (val4 = '1') THEN
+
+						IF (cipherText = finText) THEN
+							truths <= truths + '1';
+						ELSE
+
+							fails <= fails + '1';
+						END IF;
+					END IF;
 				END IF;
 			END IF;
-
 		END IF;
-
 	END PROCESS;
 
 	WITH (truths) SELECT
