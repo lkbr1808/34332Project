@@ -78,7 +78,7 @@ BEGIN
 	U9 : invAESRound PORT MAP(clk, val8, roundkeys(1023 DOWNTO 896), state7, val9, state8); --round 7
 	U10 : invAESRound PORT MAP(clk, val9, roundkeys(1151 DOWNTO 1024), state8, val10, state9); --round 8
 	U11 : invAESRound PORT MAP(clk, val10, roundkeys(1279 DOWNTO 1152), state9, val11, state10); --round 9
-	
+
 	U12 : invShiftRows PORT MAP(clk, val11, state10, val12, state11); --round 10
 	U13 : invSubBytes PORT MAP(clk, val12, state11, val13, state12); --round 10
 	U14 : AddKey PORT MAP(clk, val13, state12, roundkeys(1407 DOWNTO 1280), val14, state13); --round 10
@@ -89,7 +89,7 @@ BEGIN
 			IF (val14 = '1') THEN
 				out_data <= state13;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

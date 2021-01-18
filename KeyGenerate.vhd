@@ -50,7 +50,7 @@ BEGIN
 				key_out(63 DOWNTO 32) <= word3;
 				key_out(31 DOWNTO 0) <= word4;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

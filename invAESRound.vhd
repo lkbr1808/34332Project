@@ -1,4 +1,3 @@
-
 LIBRARY ieee;
 USE ieee.std_logic_textio.ALL;
 USE ieee.std_logic_1164.ALL;
@@ -52,20 +51,18 @@ ARCHITECTURE invAESRound_arc OF invAESRound IS
 	SIGNAL state1, state2, state3, state4 : STD_LOGIC_VECTOR(127 DOWNTO 0);
 	SIGNAL val1, val2, val3, val4 : STD_LOGIC := '0';
 BEGIN
-	
-	U1 : invShiftRows  PORT MAP(clk, in_val, in_data, val1, state1);
-	U2 : invSubBytes   PORT MAP(clk, val1, state1, val2, state2);
-	U3 : AddKey        PORT MAP(clk, val2, state2, key, val3, state3);
+
+	U1 : invShiftRows PORT MAP(clk, in_val, in_data, val1, state1);
+	U2 : invSubBytes PORT MAP(clk, val1, state1, val2, state2);
+	U3 : AddKey PORT MAP(clk, val2, state2, key, val3, state3);
 	U4 : invMixColumns PORT MAP(clk, val3, state3, val4, state4);
-
-
 	PROCESS (clk)
 	BEGIN
 		IF (RISING_EDGE(clk)) THEN
 			IF (val4 = '1') THEN
 				out_val <= '1';
 				out_data <= state4;
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

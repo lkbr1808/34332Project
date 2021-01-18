@@ -1,4 +1,3 @@
-
 LIBRARY ieee;
 USE ieee.std_logic_textio.ALL;
 USE ieee.std_logic_1164.ALL;
@@ -64,7 +63,7 @@ BEGIN
 			IF (val4 = '1') THEN
 				out_val <= '1';
 				out_data <= state4;
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

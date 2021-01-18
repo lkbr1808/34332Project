@@ -50,7 +50,7 @@ BEGIN
 				out_data <= output;
 				out_val <= '1';
 				val1 <= '0';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;

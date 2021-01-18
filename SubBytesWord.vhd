@@ -39,7 +39,7 @@ BEGIN
 			IF (vals = x"f") THEN
 				data_out <= data_temp;
 				out_val <= '1';
-			ELSE 
+			ELSE
 				out_val <= '0';
 			END IF;
 		END IF;
