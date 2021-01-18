@@ -149,7 +149,6 @@ begin
 	
 	PROCESS (ADC_CLK_10)
 	
-	
 	BEGIN
 		IF (RISING_EDGE(ADC_CLK_10)) THEN
 		
