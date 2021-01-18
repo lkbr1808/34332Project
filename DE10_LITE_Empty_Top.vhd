@@ -151,22 +151,22 @@ BEGIN
 					IF (SW(0) = '1') THEN
 						val1 <= '1';
 						address <= address + '1';
-					END IF;
-
-					IF (val2 = "111") THEN
-						val3 <= '1';
-					ELSE
-						val3 <= '0';
-					END IF;
-
-					IF (val4 = '1') THEN
-
-						IF (cipherText = finText) THEN
-							truths <= truths + '1';
+						
+						IF (val2 = "111") THEN
+							val3 <= '1';
 						ELSE
-
-							fails <= fails + '1';
+							val3 <= '0';
 						END IF;
+
+						IF (val4 = '1') THEN
+
+							IF (cipherText = finText) THEN
+								truths <= truths + '1';
+							ELSE
+								fails <= fails + '1';
+							END IF;
+						END IF;
+						
 					END IF;
 				END IF;
 			END IF;
