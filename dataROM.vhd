@@ -5,7 +5,7 @@ USE ieee.numeric_std.ALL;
 ENTITY dataROM IS
     PORT (
         clock, in_val : IN STD_LOGIC;
-        address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        address : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         out_val : OUT STD_LOGIC;
         data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 END ENTITY;
