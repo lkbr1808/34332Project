@@ -115,54 +115,6 @@ ARCHITECTURE rtl OF DE10_LITE_Empty_Top IS
 			out_val : OUT STD_LOGIC;
 			data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 	END COMPONENT;
-<<<<<<< HEAD
-	
-	signal val1, val3, val4, val5 : std_logic;
-	signal address, val2 : std_logic_vector(1 downto 0) := "00";
-	signal plainText, keyCipher, cipherText, finText : std_logic_vector(127 downto 0);
-	signal truths, fails : std_logic_vector(2 downto 0) := "00";
-	
-
-begin
-
-
-	U0 : dataROM port map (ADC_CLK_10, KEY(0), address, val2(1), plainText);
-	U1 : keyROM port map (ADC_CLK_10, KEY(0), address, val2(0), keyCipher);
-	
-	U2 : AES port map (ADC_CLK_10, key, val3, plainText, val4, cipherText);
-	U3 : invAES port map (ADC_CLK_10, key, val4, cipherText, val5, finText);
-	
-	
-	PROCESS (ADC_CLK_10)
-	
-	BEGIN
-		IF (RISING_EDGE(ADC_CLK_10)) THEN
-		
-			IF(KEY(0) = '1') THEN 
-				address <= address+'1';
-			END IF; 
-			
-			IF (val2 = "11") THEN
-					val3 <= '1';
-			END IF;
-			
-			
-			IF (val5 = '1') THEN 
-				val3 <= '0';
-				val4 <= '0';
-				val5 <= '0';
-				
-				IF (plainText = finText) THEN
-               truths <= truths + '1';
-            ELSE
-				
-					fails <= fails + '1';
-            END IF;
-			END IF;
-		
-		END IF;
-=======
->>>>>>> 5758c882ecbc6798e3ff874505d81a7b6c00b301
 
 	COMPONENT cipherROM IS
 		PORT (
