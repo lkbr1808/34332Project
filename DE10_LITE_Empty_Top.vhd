@@ -103,7 +103,7 @@ ARCHITECTURE rtl OF DE10_LITE_Empty_Top IS
 	COMPONENT dataROM IS
 		PORT (
 			clock, in_val : IN STD_LOGIC;
-			address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			address : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 			out_val : OUT STD_LOGIC;
 			data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 	END COMPONENT;
@@ -111,7 +111,7 @@ ARCHITECTURE rtl OF DE10_LITE_Empty_Top IS
 	COMPONENT keyROM IS
 		PORT (
 			clock, in_val : IN STD_LOGIC;
-			address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			address : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 			out_val : OUT STD_LOGIC;
 			data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 	END COMPONENT;
@@ -167,15 +167,17 @@ begin
 	COMPONENT cipherROM IS
 		PORT (
 			clock, in_val : IN STD_LOGIC;
-			address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			address : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 			out_val : OUT STD_LOGIC;
 			data_out : OUT STD_LOGIC_VECTOR(127 DOWNTO 0));
 	END COMPONENT;
 
+	SIGNAL firstval : STD_LOGIC := '1';
 	SIGNAL val1, val3, val4, val5 : STD_LOGIC;
 	SIGNAL val2 : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
 	SIGNAL plainText, keyCipher, cipherText, finText : STD_LOGIC_VECTOR(127 DOWNTO 0);
-	SIGNAL address, truths, fails : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
+	SIGNAL address : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
+	SIGNAL truths, fails : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";
 
 BEGIN
 
@@ -183,29 +185,30 @@ BEGIN
 	U1 : keyROM PORT MAP(ADC_CLK_10, val1, address, val2(1), keyCipher);
 	U2 : cipherROM PORT MAP(ADC_CLK_10, val1, address, val2(2), cipherText);
 
-	U3 : AES PORT MAP(ADC_CLK_10, keyCipher, val3, plainText, val4, finText);
+	U3 : AES PORT MAP(ADC_CLK_10, keyCipher, (val2(0) AND val2(1) AND val2(2)), plainText, val4, finText);
 	--U3 : invAES port map (ADC_CLK_10, keyCipher, val4, cipherText, val5, finText);
 
 	PROCESS (ADC_CLK_10)
 	BEGIN
 		IF (RISING_EDGE(ADC_CLK_10)) THEN
-			IF (address < x"4") THEN
 
-				IF (KEY(0) = '0') THEN
-					address <= "00";
-					val1 <= '0';
-				ELSE
-
-					IF (SW(0) = '1') THEN
-						val1 <= '1';
-						address <= address + '1';
-						
-						IF (val2 = "111") THEN
-							val3 <= '1';
+			IF (KEY(0) = '0') THEN
+				address <= "000";
+				truths <= "0000";
+				fails <= "0000";
+				val1 <= '0';
+				firstval <= '1';
+			ELSE
+				IF (SW(0) = '1') THEN
+					
+					IF (address < x"4") THEN
+						IF (firstval = '1') THEN
+							val1 <= '1';
+							firstval <= '0';
 						ELSE
-							val3 <= '0';
+							val1 <= '0';
 						END IF;
-
+						
 						IF (val4 = '1') THEN
 
 							IF (cipherText = finText) THEN
@@ -213,24 +216,57 @@ BEGIN
 							ELSE
 								fails <= fails + '1';
 							END IF;
+
+							address <= address + '1';
+							val1 <= '1';
 						END IF;
-						
+
 					END IF;
+				ELSE 
+					address <= "000";
+					truths <= "0000";
+					fails <= "0000";
+					val1 <= '0';
+					firstval <= '1';
 				END IF;
 			END IF;
 		END IF;
 	END PROCESS;
 
 	WITH (truths) SELECT
-	HEX0 <= "1000000" WHEN "00",
-		"1111001" WHEN "01",
-		"0100100" WHEN "10",
-		"0110000" WHEN "11";
+	HEX0 <= "1000000" WHEN "0000",
+		"1111001" WHEN "0001",
+		"0100100" WHEN "0010",
+		"0110000" WHEN "0011",
+		"0011001" WHEN "0100",
+		"0010010" WHEN "0101",
+		"0000010" WHEN "0110",
+		"1111000" WHEN "0111",
+		"0000000" WHEN "1000",
+		"0011000" WHEN "1001",
+		"0001000" WHEN "1010",
+		"0000011" WHEN "1011",
+		"0100111" WHEN "1100",
+		"0100001" WHEN "1101",
+		"0000110" WHEN "1110",
+		"0001110" WHEN "1111";
 
 	WITH (fails) SELECT
-	HEX1 <= "1000000" WHEN "00",
-		"1111001" WHEN "01",
-		"0100100" WHEN "10",
-		"0110000" WHEN "11";
+	HEX1 <= "1000000" WHEN "0000",
+		"1111001" WHEN "0001",
+		"0100100" WHEN "0010",
+		"0110000" WHEN "0011",
+		"0011001" WHEN "0100",
+		"0010010" WHEN "0101",
+		"0000010" WHEN "0110",
+		"1111000" WHEN "0111",
+		"0000000" WHEN "1000",
+		"0011000" WHEN "1001",
+		"0001000" WHEN "1010",
+		"0000011" WHEN "1011",
+		"0100111" WHEN "1100",
+		"0100001" WHEN "1101",
+		"0000110" WHEN "1110",
+		"0001110" WHEN "1111";
 
 END;
